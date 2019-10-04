@@ -49,16 +49,43 @@ if (command === "spotify-this-song")
         console.log("Preview: ", data.tracks.items[0].preview_url);
     })
 
-    // (If no song provided, song = ace of base)
 
-// Else if Movie-this 
+// MOVIE THIS FUCTION 
 
     // Use axios to call on OMBD 
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy").then(
 
-        // Get response back  
+        // Get response back
+        function(response) {
+            console.log("Title: " + response.data.Title);
+            console.log("Year: " + response.data.Year);
+            console.log("IMDB Rating: " + response.data.imdbRating);
+            console.log("Rotten Tomatoes Rating:" + response.data.Ratings[1].Value);
+            console.log("Country: " + response.data.Country);
+            console.log("Language: " + response.data.Language);
+            console.log("Plot: " + response.data.Plot);
+            console.log("Actors: " + response.data.Actors);
+          })
+          .catch(function(error) {
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              console.log("---------------Data---------------");
+              console.log(error.response.data);
+              console.log("---------------Status---------------");
+              console.log(error.response.status);
+              console.log("---------------Status---------------");
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an object that comes back with details pertaining to the error that occurred.
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log("Error", error.message);
+            }
+            console.log(error.config);
+          });  
 
-        // Extract selected data & display (Line 185 in instructions)
 
-
-// Else alert an error 
 
