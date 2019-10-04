@@ -8,8 +8,7 @@ var spotify = new Spotify(keys.spotify);
 var fs = require('fs');
 
 var command = process.argv[2];
-var input = process.argv[3];
-
+var input = process.argv.slice(3).join(" ")
 
 // Get command (argvv[2])
 // if command === (do-wathat is says)
@@ -17,15 +16,21 @@ var input = process.argv[3];
     // comand = new command data = data
 // else data = argv[3]
 
-// If input is concert-this
+
+// BANDS IN TOWN 
+if (command === "concert-this"){
 
     // Call bands in town API using Axios  
+    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp")
 
-        // Get response back 
+        // Display venue & date
+        .then(function (response) {
+            console.log("Venue: ", response.data[0].venue);
+            console.log("Date: ", response.data[0].datetime);
+        })
+    }
 
-        // Display Name of venue, Date of event & Venue location 
-
-// Else if Spotify this 
+// SPOTIFY 
 
     // (Research node spotify API documentation)
 
