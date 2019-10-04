@@ -26,7 +26,7 @@ if (command === "concert-this"){
         // Display venue & date
         .then(function (response) {
             console.log("Venue: ", response.data[0].venue);
-            console.log("Date: ", response.data[0].datetime);
+            console.log("Date: " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
         })
     }
 
