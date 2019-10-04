@@ -11,3 +11,20 @@ This will search the Bands in Town Artist Events API for an artist and render th
 ![alt text](Images/BandsInTown.png)
 
 ![alt text](Images/BandsInTown.gif)
+
+
+2. `node liri.js spotify-this-song '<song name here>'`
+
+* This will show the following information about the song in your terminal/bash window
+
+* Artist(s)
+
+* The song's name
+
+* A preview link of the song from Spotify
+
+* The album that the song is from
+
+![alt text](Images/SpotifySearch.png)
+
+

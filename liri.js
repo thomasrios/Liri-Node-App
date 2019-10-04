@@ -31,13 +31,25 @@ if (command === "concert-this"){
     }
 
 // SPOTIFY 
+if (command === "spotify-this-song")
 
     // (Research node spotify API documentation)
+        spotify.search({
+            type: 'track',
+            query: input
+        }, function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
 
     // Get selected artist from node 
+        console.log("Album: ", data.tracks.items[0].album.name);
+        console.log("Track: ", data.tracks.items[0].name);
+        console.log("Artist: ", data.tracks.items[0].album.artists[0].name);
+        console.log("Preview: ", data.tracks.items[0].preview_url);
+    })
 
     // (If no song provided, song = ace of base)
-
 
 // Else if Movie-this 
 
